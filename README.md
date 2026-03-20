@@ -6,8 +6,7 @@ A classic Snake Game built with vanilla **HTML**, **CSS**, and **JavaScript** �
 
 ## 🎮 Demo
 
-> Open `index.html` in your browser or run with Live Server in VS Code.
-
+> Open https://snake-game-sigma-dusky.vercel.app/ in your browser .
 ---
 
 ## ✨ Features
