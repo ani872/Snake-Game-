@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="icon"type="assets/favicon.png" href="assets/favicon.png">
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+  <div class="game-wrapper">
+    <div class="header">
+      <div class="score-box">
+        <span class="score-label">SCORE</span>
+        <span class="score-value" id="score">0</span>
+      </div>
+      <h1 class="title">🐍SNAKE GAMES</h1>
+      <div class="score-box">
+        <span class="score-label">BEST</span>
+        <span class="score-value" id="best-score">0</span>
+      </div>
+    </div>
+
+    <div class="board" id="board"></div>
+
+    <div class="controls">
+      <div class="controls-grid">
+        <div class="ctrl-empty"></div>
+        <div class="ctrl-btn" data-key="ArrowUp">
+          <img src="up.svg" alt="Up">
+        </div>
+        <div class="ctrl-empty"></div>
+
+        <div class="ctrl-btn" data-key="ArrowLeft">
+          <img src="left.svg" alt="Left">
+        </div>
+        <div class="ctrl-btn ctrl-center" data-key="reset">
+          ■
+        </div>
+        <div class="ctrl-btn" data-key="ArrowRight">
+          <img src="right.svg" alt="Right">
+        </div>
+
+        <div class="ctrl-empty"></div>
+        <div class="ctrl-btn" data-key="ArrowDown">
+          <img src="down.svg" alt="Down">
+        </div>
+        <div class="ctrl-empty"></div>
+      </div>
+    </div>
+
+    <div class="btn">
+      <button onclick="reset()">↺ Reset Game</button>
+    </div>
+  </div>
+
+  <div class="gameover-overlay" id="gameOverOverlay">
+    <div class="gameover-box">
+      <div class="gameover-icon">💀</div>
+      <h2>GAME OVER</h2>
+      <p>Score: <span id="final-score">0</span></p>
+      <button onclick="reset()">Play Again</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>   
+</body>
+</html>
