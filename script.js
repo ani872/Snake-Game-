@@ -11,7 +11,7 @@ let SetIntervalId;
 let score = 0;
 let bestScore = localStorage.getItem('snakeBest') || 0;
 
-// BUG FIX: was 'gameover.mp3', file is 'gameOver.mp3'
+
 let gameOverSound = new Audio('assets/gameOver.mp3');
 let eatSound = new Audio('assets/eat.mp3');
 let turnSound = new Audio('assets/turn.mp3');
@@ -25,7 +25,7 @@ function randomFoodPosition() {
 }
 
 // BUG FIX: movesnake should only change direction, NOT call main()
-// main() is already being called by setInterval — calling it again here caused double-stepping
+
 function movesnake(e) {
     if (e.key === "ArrowUp" && velocityY !== 1) {
         velocityX = 0;
@@ -48,11 +48,10 @@ function movesnake(e) {
         turnSound.currentTime = 0;
         turnSound.play();
     }
-    // REMOVED: main() call here — was causing snake to move twice per keypress
+  
 }
 
-// BUG FIX: was keys.forEach(...) but .keys is a single div, not a NodeList
-// Now using querySelectorAll on individual ctrl-btn elements
+
 let ctrlBtns = document.querySelectorAll('.ctrl-btn');
 ctrlBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -97,16 +96,16 @@ function main() {
         document.getElementById('score').textContent = score;
     }
 
-    // Move body segments forward
+  
     for (let i = SnakeBody.length - 1; i > 0; i--) {
         SnakeBody[i] = SnakeBody[i - 1];
     }
 
-    // Update head position
+   
     SnakeX += velocityX;
     SnakeY += velocityY;
 
-    // Check wall collision
+
     if (SnakeX <= 0 || SnakeX > 14 || SnakeY <= 0 || SnakeY > 14) {
         gameOver = true;
         return showGameOver();
@@ -114,14 +113,14 @@ function main() {
 
     SnakeBody[0] = [SnakeY, SnakeX];
 
-    // Check self collision
+
     for (let i = 1; i < SnakeBody.length; i++) {
         if (SnakeBody[0][0] === SnakeBody[i][0] && SnakeBody[0][1] === SnakeBody[i][1]) {
             gameOver = true;
         }
     }
 
-    // Build board HTML
+ 
     let setHtml = `<div class="food" style="grid-area: ${foodY}/${foodX};"></div>`;
 
     for (let i = 0; i < SnakeBody.length; i++) {
@@ -133,7 +132,7 @@ function main() {
     board.innerHTML = setHtml;
 }
 
-// Init
+
 randomFoodPosition();
 main();
 SetIntervalId = setInterval(main, 200);
