@@ -231,7 +231,6 @@ button:hover {
 .gameover-box p { font-size: 13px; color: var(--score-color); }
 .gameover-box p span { font-family: 'Press Start 2P', monospace; font-size: 20px; }
 
-/* RESPONSIVE */
 @media (max-width: 520px) {
     .controls-grid { grid-template-columns: repeat(3, 50px); grid-template-rows: repeat(3, 50px); }
     .score-box { padding: 6px 12px; min-width: 68px; }
